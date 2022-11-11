@@ -11,7 +11,7 @@ namespace TestProject1
         }
 
         [Test]
-        public void TestMethod1()//Сipher
+        public void TestMethod1()//Сiphers
         {
             CaesarCipher caesarCipher = new CaesarCipher();
             Assert.AreEqual("вдоснс", caesarCipher.Encrypt("яблоко", "3"));
