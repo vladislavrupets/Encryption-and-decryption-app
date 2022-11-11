@@ -28,7 +28,7 @@ namespace TestProject1
         [Test]
         public void TestMethod2()//Console Encrypt + DiskCrypt + InternetCrypt + Template Method
         {
-            ConsoleCrypt consoleCrypt = new ConsoleCrypt();       
+            ConsoleCrypt consoleCrypt = new ConsoleCrypt();
             consoleCrypt.Encrypt(new TrithemiusCipher());
             string answer = WorkWithFiles.ReadFromFile("test.txt");
             Assert.AreEqual("джтцуш 5", answer);
@@ -43,24 +43,25 @@ namespace TestProject1
             answer = WorkWithFiles.ReadFromFile("test.txt");
             Assert.AreEqual("ететец 5", answer);
         }
-        /* public void TestMethod3()//Encryption + Decryption
-         {
-             ConsoleCrypt consoleCrypt = new ConsoleCrypt();
-             consoleCrypt.Encrypt(new TrithemiusCipher());
-             string answer = WorkWithFiles.ReadFromFile("test.txt");
-             Assert.AreEqual("джтцуш 5", answer);
+        [Test]
+        public void TestMethod3()//Encryption + Decryption
+        {
+            ConsoleCrypt consoleCrypt = new ConsoleCrypt();
+            consoleCrypt.Decrypt(new TrithemiusCipher());
+            string answer = WorkWithFiles.ReadFromFile("test.txt");
+            Assert.AreEqual("€блоко 5", answer);
 
-             DiskCrypt diskCrypt = new DiskCrypt("testR.txt");
-             diskCrypt.Encrypt(new VigenereCipher());
-             answer = WorkWithFiles.ReadFromFile("test.txt");
-             Assert.AreEqual("€рръжа апельсин", answer);
+            DiskCrypt diskCrypt = new DiskCrypt("testR.txt");
+            diskCrypt.Encrypt(new VigenereCipher());
+            answer = WorkWithFiles.ReadFromFile("test.txt");
+            Assert.AreEqual("€рръжа апельсин", answer);
 
-             InternetCrypt internetCrypt = new InternetCrypt("https://gastronom.com.ua/fruit/");
-             internetCrypt.Encrypt(new TrithemiusCipher());
-             answer = WorkWithFiles.ReadFromFile("test.txt");
-             Assert.AreEqual("еужхиы 5", answer);
+            diskCrypt = new DiskCrypt("test.txt");
+            diskCrypt.Decrypt(new VigenereCipher());
+            answer = WorkWithFiles.ReadFromFile("test.txt");
+            Assert.AreEqual("€блоко апельсин", answer);
 
-         }*/
+        }
 
     }
 }

@@ -7,11 +7,11 @@ namespace TemplateMethodandState
         static void Main(string[] args)
         {
             /*ConsoleCrypt consoleCrypt = new ConsoleCrypt();
-            consoleCrypt.Encrypt(new TrithemiusCipher());*/
-            /*DiskCrypt diskCrypt = new DiskCrypt("testR.txt");
-            diskCrypt.Encrypt(new VigenereCipher());*/
-            InternetCrypt internetCrypt = new InternetCrypt("https://gastronom.com.ua/fruit/");
-            internetCrypt.Encrypt(new CaesarCipher());
+            consoleCrypt.Decrypt(new TrithemiusCipher());*/
+            DiskCrypt diskCrypt = new DiskCrypt("testR.txt");
+            diskCrypt.Decrypt(new VigenereCipher());
+            /*InternetCrypt internetCrypt = new InternetCrypt("https://gastronom.com.ua/fruit/");
+            internetCrypt.Encrypt(new CaesarCipher());*/
         }
     }
 }

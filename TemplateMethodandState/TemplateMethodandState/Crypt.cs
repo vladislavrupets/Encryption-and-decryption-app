@@ -23,7 +23,7 @@ namespace TemplateMethodandState
             string key = GetKey(cipher);
             content = ApplyDecryption(content, key, cipher);
             PrintMessage(content);
-            SaveString(content + " " + key, "Rtest.txt");
+            SaveString(content + " " + key, "test.txt");
         }
 
 
@@ -43,7 +43,6 @@ namespace TemplateMethodandState
         {
             return cipher.Encrypt(content, key);
         }
-    }
 
         public virtual string ApplyDecryption(string content, string key, Cipher cipher)
         {

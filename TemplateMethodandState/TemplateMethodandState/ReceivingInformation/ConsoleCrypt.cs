@@ -18,7 +18,7 @@ namespace TemplateMethodandState
             /*Console.WriteLine("Введите строку которую нужно зашифровать");
             string content = Console.ReadLine();
             return content;*/
-            return "яблоко"; //for test
+            return "джтцуш"; //for test
         }
         public override string GetKey(Cipher cipher)
         {
