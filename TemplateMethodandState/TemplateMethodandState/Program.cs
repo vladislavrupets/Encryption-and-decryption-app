@@ -6,12 +6,13 @@ namespace TemplateMethodandState
     {
         static void Main(string[] args)
         {
-            /*ConsoleCrypt consoleCrypt = new ConsoleCrypt();
-            consoleCrypt.Decrypt(new TrithemiusCipher());*/
-            DiskCrypt diskCrypt = new DiskCrypt("testR.txt");
-            diskCrypt.Decrypt(new VigenereCipher());
-            /*InternetCrypt internetCrypt = new InternetCrypt("https://gastronom.com.ua/fruit/");
-            internetCrypt.Encrypt(new CaesarCipher());*/
+
+            Message message2 = new Message(new TrithemiusState());
+            InternetCrypt internetCrypt = new InternetCrypt("https://gastronom.com.ua/fruit/",
+                @"D:\For_Git\TemplateMethodandState\TestProject1\TextMatch.txt");
+            internetCrypt.Encrypt(message2, @"D:\For_Git\TemplateMethodandState\TestProject1\TextW.txt");
+
+
         }
     }
 }

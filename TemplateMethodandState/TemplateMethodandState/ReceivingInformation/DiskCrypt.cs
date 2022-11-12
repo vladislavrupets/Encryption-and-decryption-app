@@ -9,27 +9,27 @@ namespace TemplateMethodandState
     public class DiskCrypt : Crypt
     {
         private string key;
-        private string path;
+        private string readPath;
         
-        public DiskCrypt(string path)
+        public DiskCrypt(string readPath)
         {
-            this.path = path;
+            this.readPath = readPath;
         }
 
         public override string GetString()
         {
-            string content = WorkWithFiles.ReadFromFile(path);
+            string content = WorkWithFiles.ReadLineFromFile(readPath);
             string[] splt = content.Split(" ");
             key = splt[1];
             content = splt[0];
             return content;
         }
-        public override string GetKey(Cipher cipher)
+        public override string GetKey(IMessageState State)
         {
             if (key == "")
             {
                 Random random = new Random();
-                if (cipher is VigenereCipher)
+                if (State is VigenereState)
                 {
                     return new string(Enumerable.Repeat(Cipher.Alfabet, random.Next(1, 32))
                         .Select(s => s[random.Next(s.Length)]).ToArray());

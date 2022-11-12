@@ -8,24 +8,25 @@ namespace TemplateMethodandState
 {
     public class InternetCrypt: Crypt
     {
-        private string key;
+        private string matchListPath;
         private string link;
-        public InternetCrypt(string link)
+        public InternetCrypt(string link, string matchListPath)
         {
             this.link = link;
+            this.matchListPath = matchListPath;
         }
 
         public override string GetString()
         {
-            HtmlParse htmlParse = new HtmlParse(link);
+            HtmlParse htmlParse = new HtmlParse(link, matchListPath);
             return htmlParse.FindMatch();
         }
-        public override string GetKey(Cipher cipher)
+        public override string GetKey(IMessageState state)
         {
             /*if (key == "")
             {
                 Random random = new Random();
-                if (cipher is VigenereCipher)
+                if (state is VigenereState)
                 {
                    
                     return new string(Enumerable.Repeat(Cipher.alfabet, random.Next(1, 32))
@@ -37,7 +38,7 @@ namespace TemplateMethodandState
                 }
             }
             return "err";*/
-            return "5"; // fot test
+            return "10"; // fot test
         }
     }
 }

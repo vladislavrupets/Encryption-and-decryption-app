@@ -6,46 +6,46 @@ using System.Threading.Tasks;
 
 namespace TemplateMethodandState
 {
-
-     //111
     public class TrithemiusCipher : Cipher
     {
-        public override string Encrypt(string text, string key)
+        public override Message Encrypt(Message message)
         {
-            char[] encryptedMessage = new char[text.Length];
-            int shift = Convert.ToInt32(key);
-            for (int i = 0; i < text.Length; i++)
+            char[] result = new char[message.Content.Length];
+            int shift = Convert.ToInt32(message.Key);
+            for (int i = 0; i < message.Content.Length; i++)
             {
-                if (text[i] != ' ')
+                if (message.Content[i] != ' ')
                 {
-                    encryptedMessage[i] = Alfabet[(Alfabet.IndexOf(text[i]) + shift) % 33];
+                    result[i] = Alfabet[(Alfabet.IndexOf(message.Content[i]) + shift) % 33];
                     shift++;
                 }
                 else
                 {
-                    encryptedMessage[i] = text[i];
+                    result[i] = message.Content[i];
                 }
             }
-            return new string(encryptedMessage);
+            message.Content = new string(result);
+            return message;
         }
 
-        public override string Decrypt(string text, string key)
+        public override Message Decrypt(Message message)
         {
-            char[] encryptedMessage = new char[text.Length];
-            int shift = Convert.ToInt32(key);
-            for (int i = 0; i < text.Length; i++)
+            char[] result = new char[message.Content.Length];
+            int shift = Convert.ToInt32(message.Key);
+            for (int i = 0; i < message.Content.Length; i++)
             {
-                if (text[i] != ' ')
+                if (message.Content[i] != ' ')
                 {
-                    encryptedMessage[i] = Alfabet[(Alfabet.IndexOf(text[i]) - shift + 33) % 33];
+                    result[i] = Alfabet[(Alfabet.IndexOf(message.Content[i]) - shift + 33) % 33];
                     shift++;
                 }
                 else
                 {
-                    encryptedMessage[i] = text[i];
+                    result[i] = message.Content[i];
                 }
             }
-            return new string(encryptedMessage);
+            message.Content = new string(result);
+            return message;
         }
     }
 }
